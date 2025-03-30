@@ -57,7 +57,7 @@ form.addEventListener('submit', async (event) => {
   }
   async function fetchImages(query) {
     const loader = document.getElementById("loader");
-    loader.classList.remove("hidden"); // Показуємо завантажувач
+    loader.classList.remove("hidden"); 
   
     try {
       const response = await fetch(`https://api.example.com/images?q=${query}`);
@@ -69,7 +69,7 @@ form.addEventListener('submit', async (event) => {
     } catch (error) {
       showNotification(error.message, "error");
     } finally {
-      loader.classList.add("hidden"); // Приховуємо завантажувач після завершення запиту
+      loader.classList.add("hidden"); 
     }
   }
   
