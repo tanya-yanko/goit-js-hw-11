@@ -1,9 +1,9 @@
-import { createGallery, clearGallery, showLoader, hideLoader } from './render-functions';
-import { getImagesByQuery } from './pixabay-api';
+import { createGallery, clearGallery, showLoader, hideLoader } from './js/render-functions';
+import { getImagesByQuery } from './js/pixabay-api';
 
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
-import "css-loader";
+
 
 
 const form = document.querySelector('.form');
@@ -45,6 +45,7 @@ form.addEventListener('submit', async (event) => {
   } finally {
 
     hideLoader();
+    searchInput.value = "";
   }
 
   function showNotification(message, type = "info") {
@@ -55,8 +56,12 @@ form.addEventListener('submit', async (event) => {
       timeout: 3000,
     });
   }
-  async function fetchImages(query) {
+  
+
+  
+  
     const loader = document.getElementById("loader");
+    
     loader.classList.remove("hidden"); 
   
     try {
@@ -71,6 +76,5 @@ form.addEventListener('submit', async (event) => {
     } finally {
       loader.classList.add("hidden"); 
     }
-  }
-  
+ 
 });
